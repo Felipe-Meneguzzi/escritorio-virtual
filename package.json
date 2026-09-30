@@ -1,0 +1,7 @@
+{
+  "name": "escritorio",
+  "private": true,
+  "type": "module",
+  "description": "Escritório 3D estilo The Office — só para os testes com node (o app não usa npm)",
+  "scripts": { "test": "node tests/layout.test.mjs" }
+}
