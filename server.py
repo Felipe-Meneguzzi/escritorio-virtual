@@ -472,6 +472,10 @@ def open_browser(url: str) -> None:
             subprocess.Popen(["wslview", url], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         elif shutil.which("explorer.exe") or core.dry_run():
             core.run_windows("explorer.exe", url)
+        elif shutil.which("xdg-open"):                       # Linux com desktop
+            subprocess.Popen(["xdg-open", url], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        elif shutil.which("open"):                           # macOS
+            subprocess.Popen(["open", url], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     except OSError as e:
         print(f"   (não consegui abrir o navegador sozinho: {e} — abra a URL acima na mão)", flush=True)
 
