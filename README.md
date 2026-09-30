@@ -31,6 +31,7 @@ trabalhando nos seus projetos. Você anda pelo escritório com um bonequinho de 
 - [Onde ficam os dados](#onde-ficam-os-dados)
 - [Problemas comuns](#problemas-comuns)
 - [Para desenvolvedores](#para-desenvolvedores)
+- [Licença](#licença)
 
 ## Requisitos
 
@@ -291,3 +292,10 @@ ESC_MODO=auto ESC_BUDGET=0.50 ESC_MAX_FUNC=2 python3 server.py
   quadro, ambiente). Three.js r160 via CDN, sem build.
 - Testes do layout: `node tests/layout.test.mjs` (ou `npm test`).
 - Para testar sem gastar tokens: `ESC_DRY_RUN=1 python3 server.py --root /tmp/escritorios-teste` (funcionários simulados).
+
+## Licença
+
+Domínio público, pela [Unlicense](LICENSE): copie, modifique, use, venda ou distribua como quiser, para qualquer fim,
+sem precisar pedir permissão nem dar crédito. O software vem sem garantia nenhuma.
+
+O [Three.js](https://threejs.org/), carregado via CDN, tem a licença MIT dele.
