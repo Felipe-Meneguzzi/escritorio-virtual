@@ -16,7 +16,7 @@ Cada sala é uma subpasta real do escritório (o núcleo lista em core.list_room
                                                                         para todas as placas/gaveteiros do prédio)
 Canais do hub: esc:clones (Notifier) e esc:sala:<office>/<sala> (sondado: nomes/mtimes do 1º nível + .git/index).
 Renomear pasta / apagar sala: fora de escopo de propósito (evita perder projeto).
-Protótipo testado: …/scratchpad/esc/feas-fs/escfs.py. CONTRATO: ARCH.md §Salas.
+CONTRATO: ARCH.md §Salas.
 """
 import base64
 import ipaddress

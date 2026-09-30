@@ -2,7 +2,7 @@
 
 O Escritório é um escritório 3D estilo "The Office" que roda no navegador. A empresa é uma pasta, cada sala de reunião é um projeto (uma subpasta) e cada funcionário é um `claude -p` trabalhando na sala. O front usa Three.js r160 via importmap (jsdelivr). O backend é Python 3.12 só com a stdlib, sem pip.
 
-O código foi copiado e adaptado do Arquipélago (`/home/menegas/arquipelago`). Nada é importado de lá, e nada lá deve ser modificado.
+Partes do código foram copiadas e adaptadas de outro projeto do autor (Arquipélago, um explorador 3D de arquivos). Nada é importado de lá.
 
 ```
 python3 server.py [--root ~/escritorios] [--port 8766] [--no-open] [--verbose]
@@ -289,7 +289,7 @@ ROOM = {id, path, display, color, created, source:{kind, url?, host?}, git}
 
 Os nomes aceitam acentos e espaços (qualquer caractere que não seja de controle, até 200).
 
-**Salas (pacote salas).** O protótipo testado está em `…/scratchpad/esc/feas-fs/escfs.py`.
+**Salas (pacote salas).**
 ```
 POST /api/rooms {office, name, description?, git_init?:true} → 201 {room:ROOM, git_ok}
 POST /api/rooms/clone {office, url, name?}  → 202 CLONE · 400 (mensagem PT-BR) · 429 (2 clones)
@@ -537,7 +537,7 @@ api.provideCharacterFactory((opts, ctx) => personagem)
     - `.git/commondir` existe, `.git` é arquivo/symlink ou `.git/config` é symlink/> 256 KB → idem;
     - cada `filter.<x>.*` → `-c filter.x.clean= -c filter.x.smudge= -c filter.x.process= -c filter.x.required=false`
       (um filtro clean plantado executa em `git status`; o front chama `/api/rooms/overview` sozinho, então bastaria
-      abrir o escritório). Teste: `…/scratchpad/esc/fixunit` (os 3 truques, nenhum `*_RAN` criado).
+      abrir o escritório). Testado com os 3 truques (nenhum `*_RAN` criado).
   - A URL de clone é validada ANTES de rodar (https, ssh ou scp; sem `ext::`/`file://`/host local) e o host é
     RESOLVIDO (`getaddrinfo`, 5 s): se algum endereço for loopback/privado/link-local/ULA/CGNAT/reservado → 400
     (`localtest.me`, domínio com registro A 10.x…). Nome que não resolve passa (o git reclama; em ssh pode ser alias
@@ -585,4 +585,4 @@ api.provideCharacterFactory((opts, ctx) => personagem)
   - markdown só via `api.markdown`;
   - imagens via `/raw` com CSP sandbox + `api.blobUrl`;
   - todo texto vindo do disco ou do Claude passa por `api.util.esc` antes de entrar em HTML.
-- **Testes com `claude -p`:** no máximo 3 execuções por agente, `--model haiku`, tarefas minúsculas, pastas descartáveis em `…/scratchpad/esc`, com timeout. Bypass só em pasta descartável.
+- **Testes com `claude -p`:** no máximo 3 execuções por agente, `--model haiku`, tarefas minúsculas, pastas descartáveis (fora de `~/escritorios`), com timeout. Bypass só em pasta descartável.

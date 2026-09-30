@@ -1,6 +1,6 @@
 """PACOTE funcionarios — backend "RH": funcionários = processos `claude -p` trabalhando numa sala (projeto).
 
-Cópia ADAPTADA de /home/menegas/arquipelago/features/claude_jobs.py + _claude_common.py (nada é importado de lá).
+Cópia ADAPTADA do gerenciador de jobs claude -p do projeto Arquipélago (claude_jobs.py + _claude_common.py; nada é importado de lá).
 
 Contrato completo em ARCH.md §Funcionários. Resumo:
     GET  /api/rh/config?office=                               → {max_func, rodando, budget, wall_s, modelos, modo, web, aviso, ...}
